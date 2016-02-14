@@ -1,30 +1,8 @@
-# electron-quick-start
+#YouTube Desktop
 
-**Clone and run for a quick way to see an Electron in action.**
+A desktop app built on [Electron](http://electron.atom.io) that interfaces with YouTube's API to provide a native-feeling watching experience powered by Google's Material Design language. This project is in no way associated with Google, and I am receiving no profit from this whatsoever.
 
-This is a minimal Electron application based on the [Quick Start Guide](http://electron.atom.io/docs/latest/tutorial/quick-start) within the Electron documentation.
+This app is currently in development, but feel free to clone this repo and try it out. Please create a pull request if you fix or improve anything.
 
-A basic Electron application needs just these files:
-
-- `index.html` - A web page to render.
-- `main.js` - Starts the app and creates a browser window to render HTML.
-- `package.json` - Points to the app's main file and lists its details and dependencies.
-
-You can learn more about each of these components within the [Quick Start Guide](http://electron.atom.io/docs/latest/tutorial/quick-start).
-
-## To Use
-
-To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
-
-```bash
-# Clone this repository
-git clone https://github.com/atom/electron-quick-start
-# Go into the repository
-cd electron-quick-start
-# Install dependencies and run the app
-npm install && npm start
-```
-
-Learn more about Electron and its API in the [documentation](http://electron.atom.io/docs/latest).
-
-#### License [CC0 (Public Domain)](LICENSE.md)
+    $ git clone https://github.com/rittbys/YouTubeDesktop.git && cd YouTubeDesktop
+    $ npm install && npm start
