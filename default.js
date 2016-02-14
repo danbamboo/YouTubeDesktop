@@ -38,9 +38,17 @@
           });
      };
 
+     function setTitleShown() {
+       var frameTitle = document.getElementById('main-frame').contentWindow.document.title;
+       document.getElementById("titleShown").innerHTML = frameTitle;
+       document.getElementById("sidebarTitle").innerHTML = frameTitle;
+       document.title = "YouTubeDesktop -- " + frameTitle;
+     };
+
      document.onreadystatechange = function () {
           if (document.readyState == "complete") {
                init();
+               setTitleShown();
           }
      };
 

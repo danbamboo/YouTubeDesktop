@@ -25,9 +25,11 @@ header#title-bar {
  left: 6px;
 }
 
-.uoy-button, .mdl-layout__drawer-button{
+.uoy-button, .mdl-layout__drawer-button {
  -webkit-app-region: no-drag;
  position: absolute;
  bottom: 0px;
  right: 6px;
 }
+
+#mar-page-container {}

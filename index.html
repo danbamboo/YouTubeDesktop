@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-     <title>YouTubeDesktop</title>
+     <title id="titleVar">YouTubeDesktop</title>
      <link rel="stylesheet" href="default.css"/>
      <link rel="stylesheet" href="dependencies/material_design_google/icon.css"/>
      <link rel="stylesheet" href="dependencies/material_design_google/material.red-orange.min.css"/>
@@ -14,7 +14,7 @@
           <!--<div class="mdl-layout__drawer-button uoy-button" id="uoy-menubutton" role="button" tabindex="0" aria-expanded="false">
             <i class="material-icons">menu</i>
           </div>-->
-          <span class="mdl-layout-title">YouTube</span>
+          <span class="mdl-layout-title" id="titleShown">YouTube</span>
           <div class="mdl-layout-spacer"></div>
           <nav id="title-bar-btns" class="md1-navigation">
                <button id="min-btn" class="uoy-button mdl-button--icon mdl-js-button mdl-button">
@@ -30,9 +30,11 @@
         </div>
      </header>
      <div class="mdl-layout__drawer">
-       <span class="mdl-layout-title">Home</span>
+       <span class="mdl-layout-title" id="sidebarTitle"></span>
        <nav class="mdl-navigation">
-         <a class="mdl-navigation__link" href="">Link</a>
+         <a class="mdl-navigation__link" href="#">
+           <i class="material-icons">
+             dashboard</i>Dashboard</a>
        </nav>
      </div>
      <!--<main class="mdl-layout__content">
@@ -41,7 +43,7 @@
        </div>
      </main>-->
      <div id="main-frame-holder">
-       <iframe src="pages/home.html" style="border:none" name="main-frame"></iframe>
+       <iframe src="pages/dashboard.html" style="border:none" name="main-frame" id="main-frame"></iframe>
      </div>
     <script src="default.js"></script>
   </div>
