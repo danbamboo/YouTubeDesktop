@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-     <title>Chromeless</title>
+     <title>YouTubeDesktop</title>
      <link rel="stylesheet" href="default.css"/>
      <link rel="stylesheet" href="dependencies/material_design_google/icon.css"/>
      <link rel="stylesheet" href="dependencies/material_design_google/material.red-orange.min.css"/>
      <script defer src="dependencies/material_design_google/material.min.js"></script>
 </head>
 <body>
-  <div id="uoy-page-container" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <div id="mar-page-container" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
      <header id="title-bar" class="mdl-layout__header">
        <div class="mdl-layout__header-row">
           <!--<div class="mdl-layout__drawer-button uoy-button" id="uoy-menubutton" role="button" tabindex="0" aria-expanded="false">
@@ -30,16 +30,19 @@
         </div>
      </header>
      <div class="mdl-layout__drawer">
-       <span class="mdl-layout-title">Title</span>
+       <span class="mdl-layout-title">Home</span>
        <nav class="mdl-navigation">
          <a class="mdl-navigation__link" href="">Link</a>
        </nav>
      </div>
-     <main class="mdl-layout__content">
+     <!--<main class="mdl-layout__content">
        <div class="page-content">
          Placeholder
        </div>
-     </main>
+     </main>-->
+     <div id="main-frame-holder">
+       <iframe src="pages/home.html" style="border:none" name="main-frame"></iframe>
+     </div>
     <script src="default.js"></script>
   </div>
 </body>
