@@ -42,6 +42,10 @@
             fade("enter-url");
             fade("enter-url__obfuscator");
        });
+       document.getElementById("enter-url__close").addEventListener("click", function (e) {
+            fade("enter-url");
+            fade("enter-url__obfuscator");
+       });
        document.getElementById("enter-url__obfuscator").addEventListener("click", function (e) {
             fade("enter-url");
             fade("enter-url__obfuscator");

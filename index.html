@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-     <title id="titleVar">YouTubeDesktop</title>
+     <title id="titleVar"></title>
      <link rel="stylesheet" href="stylesheets/default.css"/>
      <link rel="stylesheet" href="dependencies/material_design_google/icon.css"/>
      <link rel="stylesheet" href="dependencies/material_design_google/material.red-orange.min.css"/>
@@ -12,7 +12,7 @@
   <div id="mar-page-container" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
      <header id="title-bar" class="mdl-layout__header">
        <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title" id="titleShown">YouTube</span>
+          <span class="mdl-layout-title" id="titleShown"></span>
           <div class="mdl-layout-spacer"></div>
           <nav id="title-bar-btns" class="md1-navigation">
                <button id="min-btn" class="ytapp-button mdl-button--icon mdl-js-button mdl-button">
@@ -48,6 +48,10 @@
      <div id="enter-url" class="ytapp-popup mdl-card mdl-shadow--2dp">
        <div class="mdl-card__title">
          <h2 class="mdl-card__title-text">Enter a Video Url or ID</h2>
+         <div class="mdl-layout-spacer"></div>
+         <button id="enter-url__close" class="mdl-button--icon mdl-js-button mdl-button">
+           <i class="material-icons">close</i>
+         </button>
        </div>
        <div class="mdl-card__supporting-text">
          <form action="#">
