@@ -2,6 +2,9 @@
 
       var remote = require('remote');
       var BrowserWindow = remote.require('browser-window');
+      var iframe = document.getElementById("main-frame");
+      var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+
 
      function init() {
           document.getElementById("min-btn").addEventListener("click", function (e) {
@@ -45,10 +48,48 @@
        document.title = "YouTubeDesktop -- " + frameTitle;
      };
 
+     function addEventListeners(docTarget) {
+       docTarget.getElementById("enter-url__showhide").addEventListener("click", function (e) {
+            fade("enter-url");
+            /*fade("enter-url-background");*/
+       });
+       /*docTarget.getElementById("enter-url-background").addEventListener("click", function(e) {
+            fade("enter-url");
+            fade("enter-url-background");
+       });*/
+     }
+
+     function fade(objectID) {
+        object = document.getElementById(objectID);
+        objectStyle = window.getComputedStyle(object);
+        objectOpacity = objectStyle.getPropertyValue('opacity');
+       if(objectOpacity > 0) {object.isInScene = true}
+       else if(objectOpacity <= 0) {object.isInScene = false};
+       /*if(object.isInScene) {
+         object.className += " fadeIn";
+         object.isInScene = true;
+       }
+       else if(object.isInScene != true) {
+         object.className -= " fadeIn";
+         object.isInScene = false;
+       }*/
+       if(object.isInScene != true) {
+         object.className += " fadeIn";
+         object.isInScene = true;
+       }
+       else if(object.isInScene) {
+         object.className = object.className.replace( /(?:^|\s)fadeIn(?!\S)/ , '');
+         object.isInScene = false;
+       };
+     };
+
      document.onreadystatechange = function () {
           if (document.readyState == "complete") {
                init();
                setTitleShown();
+               var isInScene = false;
+               addEventListeners(document);
+               /*addEventListeners("innerDoc");*/
           }
      };
 

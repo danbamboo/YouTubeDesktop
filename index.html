@@ -8,23 +8,20 @@
      <script defer src="dependencies/material_design_google/material.min.js"></script>
 </script>
 </head>
-<body>
+<body style="background-color: #f2f2f2;">
   <div id="mar-page-container" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
      <header id="title-bar" class="mdl-layout__header">
        <div class="mdl-layout__header-row">
-          <!--<div class="mdl-layout__drawer-button uoy-button" id="uoy-menubutton" role="button" tabindex="0" aria-expanded="false">
-            <i class="material-icons">menu</i>
-          </div>-->
           <span class="mdl-layout-title" id="titleShown">YouTube</span>
           <div class="mdl-layout-spacer"></div>
           <nav id="title-bar-btns" class="md1-navigation">
-               <button id="min-btn" class="uoy-button mdl-button--icon mdl-js-button mdl-button">
+               <button id="min-btn" class="ytapp-button mdl-button--icon mdl-js-button mdl-button">
                  <i id="min-i" class="material-icons">remove</i>
                </button>
-               <button id="max-btn" class="uoy-button mdl-button--icon mdl-js-button mdl-button">
+               <button id="max-btn" class="ytapp-button mdl-button--icon mdl-js-button mdl-button">
                  <i id="max-i" class="material-icons">crop_din</i>
                </button>
-               <button id="close-btn" class="uoy-button mdl-button--icon mdl-js-button mdl-button">
+               <button id="close-btn" class="ytapp-button mdl-button--icon mdl-js-button mdl-button">
                  <i id="close-i" class="material-icons">close</i>
                </button>
           </nav>
@@ -44,7 +41,30 @@
        </div>
      </main>-->
      <div id="main-frame-holder">
-       <iframe src="pages/dashboard.html" style="border:none" name="main-frame" id="main-frame"></iframe>
+       <iframe src="pages/dashboard.html" style="border:none; height: 100%;" name="main-frame" id="main-frame"></iframe>
+     </div>
+     <button class="mdl-button mdl-js-button mdl-js--ripple-effect mdl-button--fab mdl-button--red ytapp-button" id="enter-url__showhide">
+       <i class="material-icons">location_searching</i>
+     </button>
+     <!--<div class="faded-background" id="enter-url-background" style="visibility: hidden"></div>-->
+     <div id="enter-url" class="ytapp-popup mdl-card mdl-shadow--2dp">
+       <div class="mdl-card__title">
+         <h2 class="mdl-card__title-text">Enter a Video Url or ID</h2>
+       </div>
+       <div class="mdl-card__supporting-text">
+         <form action="#">
+           <i class="material-icons">search</i>
+           <div class="mdl-textfield mdl-js-textfield">
+             <input class="mdl-textfield__input" type="text" id="enter-url__input">
+             <label class="mdl-textfield__label" for="enter-url__input">http://youtube.com/watch?v=this-text</label>
+           </div>
+         </form>
+       </div>
+       <div class="mdl-card__actions mdl-card--border">
+         <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="sumbit-url">
+           Submit
+         </a>
+       </div>
      </div>
     <script src="scripts/default.js"></script>
   </div>

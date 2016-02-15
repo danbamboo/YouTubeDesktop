@@ -7,14 +7,6 @@ body {
   word-wrap: break-word;
 }
 
-/*#title-bar {
- -webkit-app-region: drag;
- height: 24px;
- background-color: darkviolet;
- padding: none;
- margin: 0px;
-}*/
-
 header#title-bar {
   -webkit-app-region: drag;
 }
@@ -25,11 +17,50 @@ header#title-bar {
  left: 6px;
 }
 
-.uoy-button, .mdl-layout__drawer-button {
+.ytapp-button, .mdl-layout__drawer-button {
  -webkit-app-region: no-drag;
  position: absolute;
  bottom: 0px;
  right: 6px;
 }
 
-#mar-page-container {}
+.ytapp-popup#enter-url {
+  position: absolute;
+  top: 50%;
+  margin-top: -108px;
+  z-index: 3;
+  opacity: 0;
+  margin-left: -256px;
+  left: 50%;
+  width: 512px;
+  -webkit-transition: opacity .25s ease-in;
+}
+
+.ytapp-button#enter-url__showhide {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  z-index: 999;
+}
+
+.ytapp-popup#enter-url > .mdl-card__title {
+  color: #fff;
+  background: rgb(244,67,54) center / cover;
+}
+
+.fadeIn {
+  opacity: 1 !important;
+}
+
+/*.faded-background {
+  overflow: visible;
+  opacity: 0;
+  background-color: #595959;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+
+.fadeIn.faded-background {
+  opacity: .5;
+}*/
