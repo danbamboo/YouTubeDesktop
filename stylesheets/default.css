@@ -17,6 +17,10 @@ header#title-bar {
  left: 6px;
 }
 
+#main-frame, #main-frame-holder {
+  z-index: 1;
+}
+
 .ytapp-button, .mdl-layout__drawer-button {
  -webkit-app-region: no-drag;
  position: absolute;
@@ -33,7 +37,9 @@ header#title-bar {
   margin-left: -256px;
   left: 50%;
   width: 512px;
-  -webkit-transition: opacity .25s ease-in;
+  transition-property: opacity;
+  visibility: visible;
+  pointer-events: none;
 }
 
 .ytapp-button#enter-url__showhide {
@@ -48,19 +54,15 @@ header#title-bar {
   background: rgb(244,67,54) center / cover;
 }
 
-.fadeIn {
-  opacity: 1 !important;
-}
-
-/*.faded-background {
-  overflow: visible;
-  opacity: 0;
-  background-color: #595959;
-  z-index: 2;
+#enter-url__obfuscator {
+  position: absolute;
+  top: 0;
+  background-color: rgba(0,0,0,.5);
   width: 100%;
   height: 100%;
+  opacity: 0;
+  -webkit-transition: opacity .25s ease-in;
+  visibility: visible;
+  pointer-events: none;
+  z-index: 2;
 }
-
-.fadeIn.faded-background {
-  opacity: .5;
-}*/

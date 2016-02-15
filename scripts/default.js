@@ -24,17 +24,6 @@
                }
           });
 
-          /*if(document.getElementById("max-btn")){
-            document.getElementById("max-btn").addEventListener("click", function (e) {
-                 var window = BrowserWindow.getFocusedWindow();
-                 window.maximize();
-
-            });
-          }
-          else if(document.getElementById("restore-btn")){
-            document
-          }*/
-
           document.getElementById("close-btn").addEventListener("click", function (e) {
                var window = BrowserWindow.getFocusedWindow();
                window.close();
@@ -49,38 +38,30 @@
      };
 
      function addEventListeners(docTarget) {
-       docTarget.getElementById("enter-url__showhide").addEventListener("click", function (e) {
+       document.getElementById("enter-url__showhide").addEventListener("click", function (e) {
             fade("enter-url");
-            /*fade("enter-url-background");*/
+            fade("enter-url__obfuscator");
        });
-       /*docTarget.getElementById("enter-url-background").addEventListener("click", function(e) {
+       document.getElementById("enter-url__obfuscator").addEventListener("click", function (e) {
             fade("enter-url");
-            fade("enter-url-background");
-       });*/
+            fade("enter-url__obfuscator");
+       });
+       document.getElementById("nav-opendevtools").addEventListener("click", function (e) {
+            BrowserWindow.getFocusedWindow().openDevTools();
+       });
      }
 
      function fade(objectID) {
         object = document.getElementById(objectID);
-        objectStyle = window.getComputedStyle(object);
-        objectOpacity = objectStyle.getPropertyValue('opacity');
-       if(objectOpacity > 0) {object.isInScene = true}
-       else if(objectOpacity <= 0) {object.isInScene = false};
-       /*if(object.isInScene) {
-         object.className += " fadeIn";
-         object.isInScene = true;
+        objectOpacity = object.style.opacity;
+       if(objectOpacity == 0) {
+         object.style.opacity = "1";
+         object.style.pointerEvents = "auto";
        }
-       else if(object.isInScene != true) {
-         object.className -= " fadeIn";
-         object.isInScene = false;
-       }*/
-       if(object.isInScene != true) {
-         object.className += " fadeIn";
-         object.isInScene = true;
+       else if(objectOpacity > 0) {
+         object.style.opacity = "0";
+         object.style.pointerEvents = "none";
        }
-       else if(object.isInScene) {
-         object.className = object.className.replace( /(?:^|\s)fadeIn(?!\S)/ , '');
-         object.isInScene = false;
-       };
      };
 
      document.onreadystatechange = function () {

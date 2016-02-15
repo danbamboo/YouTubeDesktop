@@ -27,26 +27,24 @@
           </nav>
         </div>
      </header>
+     <!--Sidebar-->
      <div class="mdl-layout__drawer">
        <span class="mdl-layout-title" id="sidebarTitle"></span>
        <nav class="mdl-navigation">
          <a class="mdl-navigation__link" href="#">
            <i class="material-icons">
-             dashboard</i>Dashboard</a>
+             dashboard</i> Dashboard</a>
+         <a class="mdl-navigation__link" href="#" id="nav-opendevtools">
+           <i class="material-icons">
+             code</i> Open Dev Tools</a>
        </nav>
      </div>
-     <!--<main class="mdl-layout__content">
-       <div class="page-content">
-         Placeholder
-       </div>
-     </main>-->
      <div id="main-frame-holder">
        <iframe src="pages/dashboard.html" style="border:none; height: 100%;" name="main-frame" id="main-frame"></iframe>
      </div>
      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--fab mdl-color--red ytapp-button" id="enter-url__showhide">
        <i class="material-icons mdl-color-text--white">location_searching</i>
      </button>
-     <!--<div class="faded-background" id="enter-url-background" style="visibility: hidden"></div>-->
      <div id="enter-url" class="ytapp-popup mdl-card mdl-shadow--2dp">
        <div class="mdl-card__title">
          <h2 class="mdl-card__title-text">Enter a Video Url or ID</h2>
@@ -67,6 +65,7 @@
        </div>
      </div>
     <script src="scripts/default.js"></script>
+    <div id="enter-url__obfuscator" class="ytapp-obfuscator"></div>
   </div>
 </body>
 </html>
