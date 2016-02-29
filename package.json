@@ -1,5 +1,5 @@
 {
-  "name": "YouTubeDesktop",
+  "name": "Desktop",
   "version": "0.0.1",
   "description": "A desktop YouTube client. Not affiliated with Google.",
   "main": "main.js",
@@ -12,7 +12,7 @@
   },
   "keywords": [
     "YouTube",
-    "YouTubeDesktop"
+    "YouTube Desktop"
   ],
   "author": "rittbys",
   "license": "CC0-1.0",

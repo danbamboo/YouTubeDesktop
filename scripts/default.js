@@ -35,7 +35,7 @@
        var frameTitle = document.getElementById('main-frame').contentWindow.document.title;
        document.getElementById("titleShown").innerHTML = frameTitle;
        document.getElementById("sidebarTitle").innerHTML = frameTitle;
-       document.title = "YouTubeDesktop -- " + frameTitle;
+       document.title = "Desktop -- " + frameTitle;
      };
 
      function addEventListeners() {

@@ -1,4 +1,4 @@
-#YouTube Desktop
+#Desktop
 
 [![Build Status](https://travis-ci.org/rittbys/YouTubeDesktop.svg?branch=master)](https://travis-ci.org/rittbys/YouTubeDesktop) [![Stories in Ready](https://badge.waffle.io/rittbys/YouTubeDesktop.png?label=ready&title=Ready)](https://waffle.io/rittbys/YouTubeDesktop)
 
