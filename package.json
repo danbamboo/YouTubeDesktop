@@ -1,28 +1,27 @@
 {
-  "name": "electron-quick-start",
-  "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "name": "YouTubeDesktop",
+  "version": "0.0.1",
+  "description": "A desktop YouTube client. Not affiliated with Google.",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/atom/electron-quick-start.git"
+    "url": "git+https://github.com/rittbys/YouTubeDesktop"
   },
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial"
+    "YouTube",
+    "YouTubeDesktop"
   ],
-  "author": "GitHub",
+  "author": "rittbys",
   "license": "CC0-1.0",
   "bugs": {
-    "url": "https://github.com/atom/electron-quick-start/issues"
+    "url": "https://github.com/rittbys/YouTubeDesktop/issues"
   },
-  "homepage": "https://github.com/atom/electron-quick-start#readme",
+  "homepage": "https://github.com/rittbys/YouTubeDesktop#readme",
   "devDependencies": {
-    "electron-prebuilt": "^0.36.0"
+    "electron-prebuilt": "^0.36.0",
+    "fs": "^0.0.2"
   }
 }

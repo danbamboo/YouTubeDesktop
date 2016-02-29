@@ -1,6 +1,7 @@
 'use strict';
 
 const electron = require('electron');
+const fs = require('fs');
 // Module to control application life.
 const app = electron.app;
 // Module to create native browser window.
@@ -18,7 +19,7 @@ function createWindow () {
   mainWindow.loadURL('file://' + __dirname + '/index.html');
 
   // Open the DevTools.
-  /*mainWindow.webContents.openDevTools();*/
+  mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
@@ -32,6 +33,19 @@ function createWindow () {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 app.on('ready', createWindow);
+
+/*app.on('ready', function () {
+  createWindow();
+  fs.stat('foo.txt', function(err, stat) {
+    if(err == null) {
+      console.log("exists");
+    } else if(err.code == 'ENOENT') {
+      console.log('ENOENT');
+    } else {
+      console.log('other error');
+    }
+  });
+});*/
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {

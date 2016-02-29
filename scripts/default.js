@@ -2,8 +2,9 @@
 
       var remote = require('remote');
       var BrowserWindow = remote.require('browser-window');
-      var iframe = document.getElementById("main-frame");
-      var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+      var fs = require('fs');
+      var iframep = document.getElementById("main-frame");
+      var innerDoc = iframep.contentWindow;
 
 
      function init() {
@@ -37,7 +38,7 @@
        document.title = "YouTubeDesktop -- " + frameTitle;
      };
 
-     function addEventListeners(docTarget) {
+     function addEventListeners() {
        document.getElementById("enter-url__showhide").addEventListener("click", function (e) {
             fade("enter-url");
             fade("enter-url__obfuscator");
@@ -53,6 +54,15 @@
        document.getElementById("nav-opendevtools").addEventListener("click", function (e) {
             BrowserWindow.getFocusedWindow().openDevTools();
        });
+       document.getElementById("nav-test").addEventListener("click", function (e) {
+            var testContents = JSON.parse(fs.readFileSync("./local_config/testcontent.json"));
+            console.log("Test value:", testContents.testval);
+       });
+       document.getElementById("submit-url").onclick = function (e) {
+            document.getElementById("main-frame").src = "pages/watch.html?v=" + document.getElementById("enter-url__input").value;
+            fade("enter-url");
+            fade("enter-url__obfuscator");
+       };
      }
 
      function fade(objectID) {
@@ -75,6 +85,7 @@
                var isInScene = false;
                addEventListeners(document);
                /*addEventListeners("innerDoc");*/
+               console.log(innerDoc.document.getElementById("test").innerHTML);
           }
      };
 
