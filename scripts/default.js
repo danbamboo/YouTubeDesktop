@@ -85,7 +85,6 @@
                var isInScene = false;
                addEventListeners(document);
                /*addEventListeners("innerDoc");*/
-               console.log(innerDoc.document.getElementById("test").innerHTML);
           }
      };
 

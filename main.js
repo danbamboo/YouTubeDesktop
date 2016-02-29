@@ -34,18 +34,6 @@ function createWindow () {
 // initialization and is ready to create browser windows.
 app.on('ready', createWindow);
 
-/*app.on('ready', function () {
-  createWindow();
-  fs.stat('foo.txt', function(err, stat) {
-    if(err == null) {
-      console.log("exists");
-    } else if(err.code == 'ENOENT') {
-      console.log('ENOENT');
-    } else {
-      console.log('other error');
-    }
-  });
-});*/
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
