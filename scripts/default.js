@@ -32,10 +32,10 @@
      };
 
      function setTitleShown() {
-       var frameTitle = document.getElementById('main-frame').contentWindow.document.title;
+       var frameTitle = "Desktop -- " + document.getElementById('main-frame').contentWindow.document.title;
        document.getElementById("titleShown").innerHTML = frameTitle;
        document.getElementById("sidebarTitle").innerHTML = frameTitle;
-       document.title = "Desktop -- " + frameTitle;
+       document.title = frameTitle;
      };
 
      function addEventListeners() {
@@ -54,10 +54,10 @@
        document.getElementById("nav-opendevtools").addEventListener("click", function (e) {
             BrowserWindow.getFocusedWindow().openDevTools();
        });
-       document.getElementById("nav-test").addEventListener("click", function (e) {
+       /*document.getElementById("nav-test").addEventListener("click", function (e) {
             var testContents = JSON.parse(fs.readFileSync("./local_config/testcontent.json"));
             console.log("Test value:", testContents.testval);
-       });
+       });*/
        document.getElementById("submit-url").onclick = function (e) {
             document.getElementById("main-frame").src = "pages/watch.html?v=" + document.getElementById("enter-url__input").value;
             fade("enter-url");
@@ -90,7 +90,7 @@
      function getSetPageHeight() {
        pageHeight = document.body.clientHeight - document.getElementById("title-bar").clientHeight;
        document.getElementById("main-frame").style.height = pageHeight + "px";
-       innerDoc.document.getElementById("sub-content-holder").style.height = pageHeight + "px";
+       document.getElementById("main-frame").contentWindow.document.getElementById("sub-content-holder").style.height = pageHeight - 5 + "px";
      }
 
      document.onreadystatechange = function () {

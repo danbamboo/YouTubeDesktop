@@ -1,10 +1,11 @@
 {
   "name": "Desktop",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A desktop YouTube client. Not affiliated with Google.",
   "main": "main.js",
   "scripts": {
-    "start": "electron main.js"
+    "start": "electron main.js",
+    "package": "electron-packager-interactive"
   },
   "repository": {
     "type": "git",

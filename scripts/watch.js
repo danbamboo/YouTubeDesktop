@@ -1,6 +1,5 @@
 (function() {
 
-//  var fs = require('fs');
   var videoId;
 
   function getQueriedValues(variable) {

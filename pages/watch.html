@@ -16,13 +16,26 @@
   </style>
 </head>
 <body>
-  <main class="mdl-layout__content" id="sub-content-holder">
-  <div id="video-suggestion-holder">
-    <div id="video-holder">
+  <main class="mdl-layout__content" id="sub-content-holder" style="height: 1000px;">
+  <div id="video-suggestion-content-comments-holder">
+    <div id="video-holder" class="ytapp-holder">
       <iframe src="" id="player-frame" frameborder="0" allowfullscreen style="height:480px; width:854px;"></iframe>
     </div>
-    <div id="suggestion-holder">
-      <!--<h3>Suggested</h3>-->
+    <div id="suggestion-holder" class="ytapp-holder">
+      <h4 style="margin:0; text-align:center;">Suggested</h4>
+    </div>
+    <div id="content-holder">
+      <div id="info-holder" class="ytapp-holder">
+        <div id="video-title">
+          <h1 class="ytapp-video-title">Placeholder Title</h1>
+      </div>
+      <div id="video-channel">
+        <script src="https://apis.google.com/js/platform.js"></script>
+        <div class="g-ytsubscribe" data-channel="" data-layout="full" data-count="default"></div>
+      </div>
+      <div id="action-buttons">
+
+      </div>
     </div>
   </div>
   </main>
