@@ -3,20 +3,28 @@
 <head>
   <title>Watch</title>
   <link rel="stylesheet" href="../stylesheets/default.css"/>
+  <link rel="stylesheet" href="../stylesheets/watch.css"/>
   <link rel="stylesheet" href="../dependencies/material_design_google/icon.css"/>
   <link rel="stylesheet" href="../dependencies/material_design_google/material.red-orange.min.css"/>
   <script defer src="../dependencies/material_design_google/material.min.js"></script>
   <style type="text/css">
     main{
-      background-color: #f2f2f2;
+      background-color: #f1f1f1;
       width: 100%;
       height: 100%;
     };
   </style>
 </head>
 <body>
-  <main class="mdl-layout__content">
-    <iframe src="" id="player-frame" frameborder="0" allowfullscreen></iframe>
+  <main class="mdl-layout__content" id="sub-content-holder">
+  <div id="video-suggestion-holder">
+    <div id="video-holder">
+      <iframe src="" id="player-frame" frameborder="0" allowfullscreen style="height:480px; width:854px;"></iframe>
+    </div>
+    <div id="suggestion-holder">
+      <!--<h3>Suggested</h3>-->
+    </div>
+  </div>
   </main>
   <script src="../scripts/watch.js"></script>
 </body>

@@ -1,0 +1,19 @@
+div#video-holder {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+}
+div#suggestion-holder {
+  background-color: white;
+  width: 350px;
+  height: 100px;
+  margin-left: 864px;
+  margin-top: -480px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+div#video-suggestion-holder {
+  position:relative;
+  height: 480px;
+  margin-left: -582px;
+  left: 50%;
+  margin-top: 20px;
+}

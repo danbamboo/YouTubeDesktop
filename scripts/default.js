@@ -63,6 +63,15 @@
             fade("enter-url");
             fade("enter-url__obfuscator");
        };
+       window.addEventListener("resize", function () {
+         console.log("resized");
+         getSetPageHeight();
+       });
+       document.getElementById("main-frame").addEventListener("load", function () {
+         console.log("loaded")
+         setTitleShown();
+         getSetPageHeight();
+       })
      }
 
      function fade(objectID) {
@@ -78,10 +87,16 @@
        }
      };
 
+     function getSetPageHeight() {
+       pageHeight = document.body.clientHeight - document.getElementById("title-bar").clientHeight;
+       document.getElementById("main-frame").style.height = pageHeight + "px";
+       innerDoc.document.getElementById("sub-content-holder").style.height = pageHeight + "px";
+     }
+
      document.onreadystatechange = function () {
           if (document.readyState == "complete") {
                init();
-               setTitleShown();
+               //setTitleShown();
                var isInScene = false;
                addEventListeners(document);
                /*addEventListeners("innerDoc");*/
