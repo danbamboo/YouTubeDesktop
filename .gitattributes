@@ -1,0 +1,4 @@
+.\Desktop-linux-ia32.zip filter=lfs diff=lfs merge=lfs -text
+.\Desktop-linux-x64.zip filter=lfs diff=lfs merge=lfs -text
+.\Desktop-win32-ia32.zip filter=lfs diff=lfs merge=lfs -text
+.\Desktop-win32-x64.zip filter=lfs diff=lfs merge=lfs -text
