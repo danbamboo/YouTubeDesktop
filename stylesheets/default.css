@@ -66,3 +66,9 @@ header#title-bar {
   pointer-events: none;
   z-index: 2;
 }
+
+#nav-divider {
+  margin: 16px;
+  background-color: #e2e2e2;
+  height: 1px;
+}

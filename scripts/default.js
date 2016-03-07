@@ -2,6 +2,7 @@
 
       var remote = require('remote');
       var BrowserWindow = remote.require('browser-window');
+      var shell = require('electron').shell;
       var fs = require('fs');
       var iframep = document.getElementById("main-frame");
       var innerDoc = iframep.contentWindow;
@@ -32,8 +33,8 @@
      };
 
      function setTitleShown() {
-       var frameTitle = "Desktop -- " + document.getElementById('main-frame').contentWindow.document.title;
-       document.getElementById("titleShown").innerHTML = frameTitle;
+       var frameTitle = document.getElementById('main-frame').contentWindow.document.title;
+       document.getElementById("titleShown").innerHTML = "Desktop -- " + frameTitle;
        document.getElementById("sidebarTitle").innerHTML = frameTitle;
        document.title = frameTitle;
      };
@@ -51,13 +52,27 @@
             fade("enter-url");
             fade("enter-url__obfuscator");
        });
+       /*nav*/
        document.getElementById("nav-opendevtools").addEventListener("click", function (e) {
             BrowserWindow.getFocusedWindow().openDevTools();
+            document.getElementById("sidebar").className = "mdl-layout__drawer";
+            document.getElementsByClassName("mdl-layout__obfuscator")[0].className = "mdl-layout__obfuscator";
        });
        /*document.getElementById("nav-test").addEventListener("click", function (e) {
             var testContents = JSON.parse(fs.readFileSync("./local_config/testcontent.json"));
             console.log("Test value:", testContents.testval);
        });*/
+       document.getElementById("nav-dashboard").addEventListener("click", function () {
+         document.getElementById("main-frame").src = "pages/dashboard.html";
+         document.getElementById("sidebar").className = "mdl-layout__drawer";
+         document.getElementsByClassName("mdl-layout__obfuscator")[0].className = "mdl-layout__obfuscator";
+       });
+       document.getElementById("nav-about").addEventListener("click", function () {
+         shell.openExternal("https://rittbys.github.io/YouTubeDesktop");
+         document.getElementById("sidebar").className = "mdl-layout__drawer";
+         document.getElementsByClassName("mdl-layout__obfuscator")[0].className = "mdl-layout__obfuscator";
+       });
+       /*end of nav*/
        document.getElementById("submit-url").onclick = function (e) {
             document.getElementById("main-frame").src = "pages/watch.html?v=" + document.getElementById("enter-url__input").value;
             fade("enter-url");
@@ -71,7 +86,7 @@
          console.log("loaded")
          setTitleShown();
          getSetPageHeight();
-       })
+       });
      }
 
      function fade(objectID) {
