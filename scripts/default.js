@@ -121,7 +121,7 @@
      function getSetPageHeight() {
        pageHeight = document.body.clientHeight - document.getElementById("title-bar").clientHeight;
        document.getElementById("main-frame").style.height = pageHeight + "px";
-       document.getElementById("main-frame").contentWindow.document.getElementById("sub-content-holder").style.height = pageHeight - 5 + "px";
+       document.getElementById("main-frame").contentWindow.document.getElementById("sub-content-holder").style.height = pageHeight - 6 + "px";
      }
 
      document.onreadystatechange = function () {
