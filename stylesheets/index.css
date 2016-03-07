@@ -42,6 +42,8 @@ div.top-btn {
   width: 300px;
   height: 100px;
   cursor: pointer;
+  -webkit-transition: box-shadow .5s, opacity 1s ;
+  transition: box-shadow .5s, opacity 1s;
 }
 
 div#btns {
@@ -71,7 +73,15 @@ div.top-btn div {
   opacity: 0;
 }
 
+.fadedout {
+  opacity: 0;
+}
+
 img#preview-image {
   -webkit-transition: margin-top 1s, opacity 1s;
   transition: margin-top 1s, opacity 1s;
+}
+
+a > #dl-btn:hover, a > #src-btn:hover {
+  box-shadow: 0 8px 8px 0 rgba(0,0,0,.14),0 12px 4px -8px rgba(0,0,0,.2),0 4px 20px 0 rgba(0,0,0,.12)
 }
