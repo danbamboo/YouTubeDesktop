@@ -6,6 +6,7 @@ const fs = require('fs');
 const app = electron.app;
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;
+const Menu = electron.Menu;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -21,6 +22,84 @@ function createWindow () {
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
 
+  // Delcare the OSX menu to facilitate copy/paste
+  if(process.platform == 'darwin') {
+  var template = [
+    {
+      label: "Desktop",
+      submenu: [
+        {
+          label: "About Desktop",
+          role: "about"
+        },
+        {
+          type: "separator"
+        },
+        {
+          label: "Services",
+          role: "services",
+          submenu: []
+        },
+        {
+          type: "separator"
+        },
+        {
+          label: "Hide Desktop",
+          accelerator: "Command+H",
+          role: "hide"
+        },
+        {
+          label: "Hide Others",
+          accelerator: "Command+Alt+H",
+          role: "hideothers"
+        },
+        {
+          label: "Show All",
+          role: "unhide"
+        },
+        {
+          type: "separator"
+        },
+        {
+          label: "Quit",
+          accelerator: "Command+Q",
+          click: function() { app.quit(); }
+        },
+      ]
+    },
+    {
+      label: "Edit",
+      submenu: [
+        {
+          label: "Cut",
+          accelerator: "Commandd+X",
+          role: "cut"
+        },
+        {
+          label: "Copy",
+          accelerator: "Command+C",
+          role: "copy"
+        },
+        {
+          label: "Paste",
+          accelerator: "Command+V",
+          role: "paste"
+        },
+      ]
+    },
+    {
+      label: "Window",
+      submenu: [
+        {
+          label: "Bring All to Front",
+          role: "front"
+        },
+      ]
+    },
+  ];
+  var menu = Menu.buildFromTemplate(template);
+  Menu.setApplicationMenu(menu);
+}
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
     // Dereference the window object, usually you would store windows

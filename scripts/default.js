@@ -1,11 +1,12 @@
 (function () {
 
-      var remote = require('remote');
-      var BrowserWindow = remote.require('browser-window');
-      var shell = require('electron').shell;
-      var fs = require('fs');
-      var iframep = document.getElementById("main-frame");
-      var innerDoc = iframep.contentWindow;
+      const remote = require('remote');
+      const electron = require('electron');
+      const BrowserWindow = remote.require('browser-window');
+      const shell = require('electron').shell;
+      const fs = require('fs');
+      const iframep = document.getElementById("main-frame");
+      const innerDoc = iframep.contentWindow;
 
 
      function init() {
