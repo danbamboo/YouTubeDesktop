@@ -59,10 +59,6 @@
             document.getElementById("sidebar").className = "mdl-layout__drawer";
             document.getElementsByClassName("mdl-layout__obfuscator")[0].className = "mdl-layout__obfuscator";
        });
-       /*document.getElementById("nav-test").addEventListener("click", function (e) {
-            var testContents = JSON.parse(fs.readFileSync("./local_config/testcontent.json"));
-            console.log("Test value:", testContents.testval);
-       });*/
        document.getElementById("nav-dashboard").addEventListener("click", function () {
          document.getElementById("main-frame").src = "pages/dashboard.html";
          document.getElementById("sidebar").className = "mdl-layout__drawer";
@@ -75,21 +71,25 @@
        });
        /*end of nav*/
        document.getElementById("submit-url").onclick = function (e) {
+
+            var configContents = JSON.parse(fs.readFileSync("./local_config/config.json"));
+            var APIKey = configContents.APIKey;
+
             var enteredValue = document.getElementById("enter-url__input").value;
             var regex = /(?:\<a href\=\")?(?:https?\:\/\/)?(?:www\.|m\.)?youtube\.com\/watch.*?[?&]v=([\w\-]+)/gmi;
             var altRegex = /(?:\<a href\-\")?(?:https?\:\/\/)?(?:www\.|m\.)?youtu\.be\/([\w\-]+)/gmi;
             var value = regex.exec(enteredValue);
             var altValue = altRegex.exec(enteredValue);
             if(value) {
-              document.getElementById("main-frame").src = "pages/watch.html?v=" + value[1];
+              document.getElementById("main-frame").src = "pages/watch.html?v=" + value[1] + "&APIKey=" + APIKey;
               fade("enter-url");
               fade("enter-url__obfuscator");
             } else if(altValue) {
-              document.getElementById("main-frame").src = "pages/watch.html?v=" + altValue[1];
+              document.getElementById("main-frame").src = "pages/watch.html?v=" + altValue[1] + "&APIKey=" + APIKey;
               fade("enter-url");
               fade("enter-url__obfuscator");
             } else {
-              document.getElementById("main-frame").src = "pages/watch.html?v=" + enteredValue;
+              document.getElementById("main-frame").src = "pages/watch.html?v=" + enteredValue + "&APIKey=" + APIKey;
               fade("enter-url");
               fade("enter-url__obfuscator");
             }

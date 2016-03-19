@@ -1,6 +1,7 @@
 (function() {
 
   var videoId;
+  var xhr = new XMLHttpRequest();
 
   function getQueriedValues(variable) {
     var query = window.location.search.substring(1);
@@ -12,16 +13,14 @@
     return(false);
   };
 
-  function getVideoInfo() {
-    videoId = getQueriedValues("v");
-  }
-
   function drawElements() {
     document.getElementById("player-frame").src = "https://www.youtube.com/embed/" + videoId;
   }
 
   document.onreadystatechange = function () {
-      getVideoInfo();
+      videoId = getQueriedValues("v");
+      APIKey = getQueriedValues("APIKey");
+      //getVideoInfo();
       drawElements();
   };
 

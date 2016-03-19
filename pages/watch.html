@@ -17,28 +17,94 @@
 </head>
 <body>
   <main class="mdl-layout__content" id="sub-content-holder" style="height: 1000px;">
-  <div id="video-suggestion-content-comments-holder">
-    <div id="video-holder" class="ytapp-holder">
-      <iframe src="" id="player-frame" frameborder="0" allowfullscreen style="height:480px; width:854px;"></iframe>
-    </div>
-    <div id="suggestion-holder" class="ytapp-holder">
-      <h4 style="margin:0; text-align:center;">Suggested</h4>
-    </div>
-    <div id="content-holder">
-      <div id="info-holder" class="ytapp-holder">
-        <div id="video-title">
-          <h1 class="ytapp-video-title">Placeholder Title</h1>
+    <div id="video-suggestion-content-comments-holder">
+      <div id="video-holder" class="ytapp-holder">
+        <iframe src="" id="player-frame" frameborder="0" allowfullscreen style="height:480px; width:854px; transform: translate3d(0,0,0);"></iframe>
       </div>
-      <div id="video-channel">
-        <script src="https://apis.google.com/js/platform.js"></script>
-        <div class="g-ytsubscribe" data-channel="" data-layout="full" data-count="default"></div>
+      <div id="suggestion-holder" class="ytapp-holder">
+        <h4 style="margin:0; text-align:center;">Suggested</h4>
       </div>
-      <div id="action-buttons">
+      <div id="content-holder">
+        <div id="info-holder" class="ytapp-holder">
+          <div id="video-title">
+            <h1 class="ytapp-video-title" id="ytapp-video-title"></h1>
+          </div>
+          <div id="video-channel">
+          </div>
+          <div id="action-buttons">
+          </div>
+        </div>
+        <div id="description-holder" class="ytapp-holder">
+          <strong id="time">Published on ______</strong>
+          <div id="description">
 
+          </div>
+        </div>
       </div>
     </div>
-  </div>
   </main>
   <script src="../scripts/watch.js"></script>
+  <script type="text/javascript">
+  function getQueriedValues(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i=0;i<vars.length;i++) {
+      var pair = vars[i].split("=");
+      if(pair[0] == variable){return pair[1]};
+    }
+    return(false);
+  };
+
+  function getVideoInfo() {
+    videoId = getQueriedValues("v");
+    APIKey = getQueriedValues("APIKey");
+    gapi.client.setApiKey(APIKey);
+
+    var request = gapi.client.youtube.videos.list({
+      part: 'snippet',
+      id: videoId
+    });
+
+    request.execute(updateVideoInfo);
+
+    var requestSearch = gapi.client.youtube.search.list({
+      part: 'snippet',
+      relatedToVideoId: videoId,
+      type: 'video'
+    });
+    /*requestSearch.execute(function (response) {
+
+    });*/
+
+  }
+
+  function updateVideoInfo(response) {
+    var title = JSON.stringify(response.items[0].snippet.title, '', 2);
+    var channelId = JSON.stringify(response.items[0].snippet.channelId, '', 2);
+      var regexTitle = /\"(.+)\"/;
+    var time = JSON.stringify(response.items[0].snippet.publishedAt, '', 2);
+      var regexTime = /([0-9]+-[0-9]+-[0-9]+)/;
+    var description = JSON.stringify(response.items[0].snippet.description, '', 2);
+
+    var btn = document.createElement("DIV");
+      btn.setAttribute("data-channelid", regexTitle.exec(channelId)[1]);
+      btn.setAttribute("data-layout", "full");
+      btn.setAttribute("data-count", "default");
+      btn.setAttribute("id", "subscribe");
+      btn.setAttribute("class", "g-ytsubscribe");
+      document.getElementById("video-channel").appendChild(btn);
+    var gscript = document.createElement("SCRIPT");
+      gscript.setAttribute("src", "https://apis.google.com/js/platform.js");
+      document.getElementById("video-channel").appendChild(gscript);
+    document.getElementById("ytapp-video-title").innerHTML = regexTitle.exec(title)[1];
+    document.getElementById("time").innerHTML = "Published on " + regexTime.exec(time)[1];
+    document.getElementById("description").innerHTML = regexTitle.exec(description)[1].replace(/\\n/g, "<br />");
+  }
+
+  function onClientLoad() {
+    gapi.client.load('youtube', 'v3', getVideoInfo)
+  }
+  </script>
+  <script src="https://apis.google.com/js/client.js?onload=onClientLoad" type="text/javascript"></script>
 </body>
 </html>
